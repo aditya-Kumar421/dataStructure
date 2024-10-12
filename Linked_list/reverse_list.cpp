@@ -9,6 +9,7 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
+//Iterative approach:
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
@@ -24,6 +25,21 @@ public:
         return prev;
     }
 };
+
+//Recursive approach:
+/*
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if(head == NULL || head->next == NULL) return head;
+        ListNode* newHead = reverseList(head->next);
+        ListNode* front = head->next;
+        front->next = head;
+        head->next = NULL;
+        return newHead;
+    }
+};
+*/
 
 void printList(ListNode* head) {
     ListNode* temp = head;
